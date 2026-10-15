@@ -10,6 +10,7 @@ private func fixture(_ name: String) throws -> String {
         .deletingLastPathComponent() // …/Tests
         .deletingLastPathComponent() // …/PSTeams
         .deletingLastPathComponent() // …/Packages
+        .deletingLastPathComponent() // repo root
         .appendingPathComponent("fixtures/teams/\(name)")
     return try String(contentsOf: url, encoding: .utf8)
 }

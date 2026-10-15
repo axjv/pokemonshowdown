@@ -91,7 +91,8 @@ public actor PSClient {
         let id = UUID()
         frameStreams[id] = continuation
         continuation.onTermination = { [weak self] _ in
-            Task { await self?.frameStreams.removeValue(forKey: id) }
+            guard let self else { return }
+            Task { await self.unsubscribeFrames(id) }
         }
         return stream
     }
@@ -102,10 +103,14 @@ public actor PSClient {
         stateStreams[id] = continuation
         continuation.yield(state)
         continuation.onTermination = { [weak self] _ in
-            Task { await self?.stateStreams.removeValue(forKey: id) }
+            guard let self else { return }
+            Task { await self.unsubscribeStates(id) }
         }
         return stream
     }
+
+    private func unsubscribeFrames(_ id: UUID) { frameStreams.removeValue(forKey: id) }
+    private func unsubscribeStates(_ id: UUID) { stateStreams.removeValue(forKey: id) }
 
     // MARK: - connection lifecycle
 

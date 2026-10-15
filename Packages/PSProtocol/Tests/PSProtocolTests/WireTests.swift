@@ -39,6 +39,7 @@ final class WireTests: XCTestCase {
             .deletingLastPathComponent() // …/Tests
             .deletingLastPathComponent() // …/PSProtocol
             .deletingLastPathComponent() // …/Packages
+            .deletingLastPathComponent() // repo root
             .appendingPathComponent("fixtures/replays/connect.frames.txt")
         let text = try String(contentsOf: url, encoding: .utf8)
         let frames = text.components(separatedBy: "\n\n")

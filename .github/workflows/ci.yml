@@ -34,10 +34,19 @@ jobs:
     runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
+      - name: Use newest Xcode in the image
+        # Current XcodeGen writes a pbxproj dialect the image's default
+        # (older) Xcode cannot read; run everything on the newest one.
+        run: |
+          X=$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)
+          echo "DEVELOPER_DIR=$X/Contents/Developer" >> "$GITHUB_ENV"
+          echo "::notice::using $X"
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Generate project
-        run: xcodegen generate
+        run: |
+          xcodegen generate
+          find . -maxdepth 2 -name "*.xcodeproj" | sed "s/^/::notice::generated at /"
       - name: Build
         run: |
           set -o pipefail

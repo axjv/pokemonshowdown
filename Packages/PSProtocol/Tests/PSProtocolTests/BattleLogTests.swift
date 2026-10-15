@@ -34,6 +34,7 @@ final class BattleLogTests: XCTestCase {
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
+            .deletingLastPathComponent()
             .appendingPathComponent("fixtures/battles/basic-singles.battle.txt")
         let text = try String(contentsOf: url, encoding: .utf8)
 

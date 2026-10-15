@@ -9,6 +9,7 @@ final class DexTests: XCTestCase {
             .deletingLastPathComponent() // …/Tests
             .deletingLastPathComponent() // …/PSData
             .deletingLastPathComponent() // …/Packages
+            .deletingLastPathComponent() // repo root
             .appendingPathComponent("fixtures/dex/dex-sample.json")
         return try Dex(json: Data(contentsOf: url))
     }
