@@ -1,0 +1,42 @@
+name: iOS CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ios-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  swift-packages:
+    name: swift test (${{ matrix.package }})
+    runs-on: macos-14
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [PSProtocol, PSNet, PSData, PSTeams]
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: swift test --package-path Packages/${{ matrix.package }}
+
+  ios-app:
+    name: iOS app build + test
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build
+        run: >-
+          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown
+          -destination 'platform=iOS Simulator,name=iPhone 15'
+          -configuration Debug build
+      - name: Test
+        run: >-
+          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown
+          -destination 'platform=iOS Simulator,name=iPhone 15'
+          -configuration Debug test

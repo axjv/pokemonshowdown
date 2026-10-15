@@ -1,0 +1,42 @@
+name: Release iOS (unsigned)
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version for the ios-v<version> tag"
+        default: "0.1.0"
+
+jobs:
+  ipa:
+    name: Build sideloadable IPA
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build (Release, device, unsigned)
+        # Unsigned on purpose: LiveContainer/SideStore re-sign at install time.
+        run: >-
+          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown
+          -configuration Release -sdk iphoneos -destination 'generic/platform=iOS'
+          CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGNING_IDENTITY=
+          -derivedDataPath build/DerivedData
+      - name: Package IPA
+        run: |
+          APP=$(find build/DerivedData/Build/Products/Release-iphoneos -maxdepth 1 -name 'PokemonShowdown.app')
+          test -n "$APP"
+          mkdir -p Payload
+          cp -R "$APP" Payload/
+          ditto -c -k --keepParent Payload PokemonShowdown-unsigned.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PokemonShowdown-unsigned
+          path: PokemonShowdown-unsigned.ipa
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ios-v${{ inputs.version }}
+          prerelease: true
+          make_latest: false
+          files: PokemonShowdown-unsigned.ipa

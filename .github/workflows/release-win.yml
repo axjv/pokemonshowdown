@@ -1,0 +1,41 @@
+name: Release Windows desktop
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version for the win-v<version> tag"
+        default: "0.1.0"
+
+jobs:
+  build:
+    name: electron-builder (win)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ts/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: ts/pnpm-lock.yaml
+      - name: Install dependencies
+        working-directory: ts
+        run: pnpm install --frozen-lockfile
+      - name: Build bundles
+        working-directory: ts
+        run: pnpm --filter desktop build
+      - name: Package installers
+        working-directory: ts/apps/desktop
+        run: pnpm exec electron-builder --win --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: desktop-windows
+          path: ts/apps/desktop/release/*.exe
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: win-v${{ inputs.version }}
+          prerelease: true
+          make_latest: false
+          files: ts/apps/desktop/release/*.exe

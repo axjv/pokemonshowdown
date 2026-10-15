@@ -1,0 +1,10 @@
+{
+  "name": "dexextract",
+  "private": true,
+  "type": "module",
+  "description": "Converts Pokemon Showdown data/*.js into the dex JSON consumed by both stacks",
+  "scripts": {
+    "extract:subset": "node dexextract.mjs --subset subsets/fixtures.json",
+    "extract:full": "node dexextract.mjs --out ../../dex-full"
+  }
+}

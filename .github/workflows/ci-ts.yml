@@ -1,0 +1,33 @@
+name: TS CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ts-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core:
+    name: typecheck + test
+    runs-on: ubuntu-latest
+    env:
+      # CI only typechecks/tests; no Electron binary needed.
+      ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
+    defaults:
+      run:
+        working-directory: ts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ts/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: ts/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test

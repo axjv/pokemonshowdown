@@ -1,0 +1,15 @@
+|updateuser| Guest 1234|0|1|{}
+
+|formats|[[{"name":"gen9ou","searchable":true},{"name":"gen9uu","searchable":true}]]
+
+|challstr|4|1729000|fakechallengefragmentforfixtureuseonly
+
+>lobby
+|init|chat
+|title|Lobby
+|users|3,+Alice,Bob,*Carnivine Bot
+
+>battle-gen9ou-1234
+|init|battle
+|title|Alice vs. Bob
+|player|p1|Alice|1|1500

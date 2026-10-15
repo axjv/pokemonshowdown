@@ -1,0 +1,17 @@
+{
+  "pokemon": [
+    "articuno", "ludicolo", "volbeat", "seismitoad", "alomomola", "armaldo",
+    "meowscarada", "garganacl", "greattusk"
+  ],
+  "moves": [
+    "icebeam", "hurricane", "substitute", "roost", "surf", "gigadrain", "raindance",
+    "tailglow", "batonpass", "encore", "hydropump", "earthpower", "stealthrock",
+    "wish", "protect", "toxic", "xscissor", "stoneedge", "aquatail", "rapidspin",
+    "flowertrick", "recover", "headlongrush"
+  ],
+  "abilities": [
+    "pressure", "swiftswim", "prankster", "regenerator",
+    "purifyingsalt", "protosynthesis"
+  ],
+  "items": ["leftovers", "lifeorb", "damprock"]
+}

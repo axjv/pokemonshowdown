@@ -1,0 +1,611 @@
+{
+ "format": "ps-client-dex/1",
+ "fetched": "2026-10-15T14:50:43.461Z",
+ "types": [
+  "Bug",
+  "Dark",
+  "Dragon",
+  "Electric",
+  "Fairy",
+  "Fighting",
+  "Fire",
+  "Flying",
+  "Ghost",
+  "Grass",
+  "Ground",
+  "Ice",
+  "Normal",
+  "Poison",
+  "Psychic",
+  "Rock",
+  "Steel",
+  "Stellar",
+  "Water"
+ ],
+ "typechart": {
+  "Bug": {
+   "efficacy": {
+    "Dark": 2,
+    "Fairy": 0.5,
+    "Fighting": 0.5,
+    "Fire": 0.5,
+    "Flying": 0.5,
+    "Ghost": 0.5,
+    "Grass": 2,
+    "Poison": 0.5,
+    "Psychic": 2,
+    "Steel": 0.5
+   }
+  },
+  "Dark": {
+   "efficacy": {
+    "Dark": 0.5,
+    "Fairy": 0.5,
+    "Fighting": 0.5,
+    "Ghost": 2,
+    "Psychic": 2
+   }
+  },
+  "Dragon": {
+   "efficacy": {
+    "Dragon": 2,
+    "Fairy": 0,
+    "Steel": 0.5
+   }
+  },
+  "Electric": {
+   "efficacy": {
+    "Dragon": 0.5,
+    "Electric": 0.5,
+    "Flying": 2,
+    "Grass": 0.5,
+    "Ground": 0,
+    "Water": 2
+   }
+  },
+  "Fairy": {
+   "efficacy": {
+    "Dark": 2,
+    "Dragon": 2,
+    "Fighting": 2,
+    "Fire": 0.5,
+    "Poison": 0.5,
+    "Steel": 0.5
+   }
+  },
+  "Fighting": {
+   "efficacy": {
+    "Bug": 0.5,
+    "Dark": 2,
+    "Fairy": 0.5,
+    "Flying": 0.5,
+    "Ghost": 0,
+    "Ice": 2,
+    "Normal": 2,
+    "Poison": 0.5,
+    "Psychic": 0.5,
+    "Rock": 2,
+    "Steel": 2
+   }
+  },
+  "Fire": {
+   "efficacy": {
+    "Bug": 2,
+    "Dragon": 0.5,
+    "Fire": 0.5,
+    "Grass": 2,
+    "Ice": 2,
+    "Rock": 0.5,
+    "Steel": 2,
+    "Water": 0.5
+   }
+  },
+  "Flying": {
+   "efficacy": {
+    "Bug": 2,
+    "Electric": 0.5,
+    "Fighting": 2,
+    "Grass": 2,
+    "Rock": 0.5,
+    "Steel": 0.5
+   }
+  },
+  "Ghost": {
+   "efficacy": {
+    "Dark": 0.5,
+    "Ghost": 2,
+    "Normal": 0,
+    "Psychic": 2
+   }
+  },
+  "Grass": {
+   "efficacy": {
+    "Bug": 0.5,
+    "Dragon": 0.5,
+    "Fire": 0.5,
+    "Flying": 0.5,
+    "Grass": 0.5,
+    "Ground": 2,
+    "Poison": 0.5,
+    "Rock": 2,
+    "Steel": 0.5,
+    "Water": 2
+   }
+  },
+  "Ground": {
+   "efficacy": {
+    "Bug": 0.5,
+    "Electric": 2,
+    "Fire": 2,
+    "Flying": 0,
+    "Grass": 0.5,
+    "Poison": 2,
+    "Rock": 2,
+    "Steel": 2
+   }
+  },
+  "Ice": {
+   "efficacy": {
+    "Dragon": 2,
+    "Fire": 0.5,
+    "Flying": 2,
+    "Grass": 2,
+    "Ground": 2,
+    "Ice": 0.5,
+    "Steel": 0.5,
+    "Water": 0.5
+   }
+  },
+  "Normal": {
+   "efficacy": {
+    "Ghost": 0,
+    "Rock": 0.5,
+    "Steel": 0.5
+   }
+  },
+  "Poison": {
+   "efficacy": {
+    "Fairy": 2,
+    "Ghost": 0.5,
+    "Grass": 2,
+    "Ground": 0.5,
+    "Poison": 0.5,
+    "Rock": 0.5,
+    "Steel": 0
+   }
+  },
+  "Psychic": {
+   "efficacy": {
+    "Dark": 0,
+    "Fighting": 2,
+    "Poison": 2,
+    "Psychic": 0.5,
+    "Steel": 0.5
+   }
+  },
+  "Rock": {
+   "efficacy": {
+    "Bug": 2,
+    "Fighting": 0.5,
+    "Fire": 2,
+    "Flying": 2,
+    "Ground": 0.5,
+    "Ice": 2,
+    "Steel": 0.5
+   }
+  },
+  "Steel": {
+   "efficacy": {
+    "Electric": 0.5,
+    "Fairy": 2,
+    "Fire": 0.5,
+    "Ice": 2,
+    "Rock": 2,
+    "Steel": 0.5,
+    "Water": 0.5
+   }
+  },
+  "Stellar": {
+   "efficacy": {}
+  },
+  "Water": {
+   "efficacy": {
+    "Dragon": 0.5,
+    "Fire": 2,
+    "Grass": 0.5,
+    "Ground": 2,
+    "Rock": 2,
+    "Water": 0.5
+   }
+  }
+ },
+ "pokemon": {
+  "articuno": {
+   "num": 144,
+   "name": "Articuno",
+   "gender": "N",
+   "types": [
+    "Ice",
+    "Flying"
+   ],
+   "baseStats": {
+    "hp": 90,
+    "atk": 85,
+    "def": 100,
+    "spa": 95,
+    "spd": 125,
+    "spe": 85
+   }
+  },
+  "ludicolo": {
+   "num": 272,
+   "name": "Ludicolo",
+   "types": [
+    "Water",
+    "Grass"
+   ],
+   "baseStats": {
+    "hp": 80,
+    "atk": 70,
+    "def": 70,
+    "spa": 90,
+    "spd": 100,
+    "spe": 70
+   }
+  },
+  "volbeat": {
+   "num": 313,
+   "name": "Volbeat",
+   "gender": "M",
+   "types": [
+    "Bug"
+   ],
+   "baseStats": {
+    "hp": 65,
+    "atk": 73,
+    "def": 75,
+    "spa": 47,
+    "spd": 85,
+    "spe": 85
+   }
+  },
+  "seismitoad": {
+   "num": 537,
+   "name": "Seismitoad",
+   "types": [
+    "Water",
+    "Ground"
+   ],
+   "baseStats": {
+    "hp": 105,
+    "atk": 95,
+    "def": 75,
+    "spa": 85,
+    "spd": 75,
+    "spe": 74
+   }
+  },
+  "alomomola": {
+   "num": 594,
+   "name": "Alomomola",
+   "types": [
+    "Water"
+   ],
+   "baseStats": {
+    "hp": 165,
+    "atk": 75,
+    "def": 80,
+    "spa": 40,
+    "spd": 45,
+    "spe": 65
+   }
+  },
+  "armaldo": {
+   "num": 348,
+   "name": "Armaldo",
+   "types": [
+    "Rock",
+    "Bug"
+   ],
+   "baseStats": {
+    "hp": 75,
+    "atk": 125,
+    "def": 100,
+    "spa": 70,
+    "spd": 80,
+    "spe": 45
+   }
+  },
+  "meowscarada": {
+   "num": 908,
+   "name": "Meowscarada",
+   "types": [
+    "Grass",
+    "Dark"
+   ],
+   "baseStats": {
+    "hp": 76,
+    "atk": 110,
+    "def": 70,
+    "spa": 81,
+    "spd": 70,
+    "spe": 123
+   }
+  },
+  "garganacl": {
+   "num": 934,
+   "name": "Garganacl",
+   "types": [
+    "Rock"
+   ],
+   "baseStats": {
+    "hp": 100,
+    "atk": 100,
+    "def": 130,
+    "spa": 45,
+    "spd": 90,
+    "spe": 35
+   }
+  },
+  "greattusk": {
+   "num": 984,
+   "name": "Great Tusk",
+   "gender": "N",
+   "types": [
+    "Ground",
+    "Fighting"
+   ],
+   "baseStats": {
+    "hp": 115,
+    "atk": 131,
+    "def": 131,
+    "spa": 53,
+    "spd": 53,
+    "spe": 87
+   }
+  }
+ },
+ "moves": {
+  "icebeam": {
+   "basePower": 90,
+   "pp": 10,
+   "priority": 0,
+   "name": "Ice Beam",
+   "type": "Ice",
+   "category": "Special"
+  },
+  "hurricane": {
+   "basePower": 110,
+   "pp": 10,
+   "priority": 0,
+   "name": "Hurricane",
+   "type": "Flying",
+   "category": "Special"
+  },
+  "substitute": {
+   "basePower": 0,
+   "pp": 10,
+   "priority": 0,
+   "name": "Substitute",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "roost": {
+   "basePower": 0,
+   "pp": 5,
+   "priority": 0,
+   "name": "Roost",
+   "type": "Flying",
+   "category": "Status"
+  },
+  "surf": {
+   "basePower": 90,
+   "pp": 15,
+   "priority": 0,
+   "name": "Surf",
+   "type": "Water",
+   "category": "Special"
+  },
+  "gigadrain": {
+   "basePower": 75,
+   "pp": 10,
+   "priority": 0,
+   "name": "Giga Drain",
+   "type": "Grass",
+   "category": "Special"
+  },
+  "raindance": {
+   "basePower": 0,
+   "pp": 5,
+   "priority": 0,
+   "name": "Rain Dance",
+   "type": "Water",
+   "category": "Status"
+  },
+  "tailglow": {
+   "basePower": 0,
+   "pp": 20,
+   "priority": 0,
+   "name": "Tail Glow",
+   "type": "Bug",
+   "category": "Status"
+  },
+  "batonpass": {
+   "basePower": 0,
+   "pp": 40,
+   "priority": 0,
+   "name": "Baton Pass",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "encore": {
+   "basePower": 0,
+   "pp": 5,
+   "priority": 0,
+   "name": "Encore",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "hydropump": {
+   "basePower": 110,
+   "pp": 5,
+   "priority": 0,
+   "name": "Hydro Pump",
+   "type": "Water",
+   "category": "Special"
+  },
+  "earthpower": {
+   "basePower": 90,
+   "pp": 10,
+   "priority": 0,
+   "name": "Earth Power",
+   "type": "Ground",
+   "category": "Special"
+  },
+  "stealthrock": {
+   "basePower": 0,
+   "pp": 20,
+   "priority": 0,
+   "name": "Stealth Rock",
+   "type": "Rock",
+   "category": "Status"
+  },
+  "wish": {
+   "basePower": 0,
+   "pp": 10,
+   "priority": 0,
+   "name": "Wish",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "protect": {
+   "basePower": 0,
+   "pp": 10,
+   "priority": 4,
+   "name": "Protect",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "toxic": {
+   "basePower": 0,
+   "pp": 10,
+   "priority": 0,
+   "name": "Toxic",
+   "type": "Poison",
+   "category": "Status"
+  },
+  "xscissor": {
+   "basePower": 80,
+   "pp": 15,
+   "priority": 0,
+   "name": "X-Scissor",
+   "type": "Bug",
+   "category": "Physical"
+  },
+  "stoneedge": {
+   "basePower": 100,
+   "pp": 5,
+   "priority": 0,
+   "name": "Stone Edge",
+   "type": "Rock",
+   "category": "Physical"
+  },
+  "aquatail": {
+   "basePower": 90,
+   "pp": 10,
+   "priority": 0,
+   "name": "Aqua Tail",
+   "type": "Water",
+   "category": "Physical"
+  },
+  "rapidspin": {
+   "basePower": 50,
+   "pp": 40,
+   "priority": 0,
+   "name": "Rapid Spin",
+   "type": "Normal",
+   "category": "Physical"
+  },
+  "flowertrick": {
+   "basePower": 70,
+   "pp": 10,
+   "priority": 0,
+   "name": "Flower Trick",
+   "type": "Grass",
+   "category": "Physical"
+  },
+  "recover": {
+   "basePower": 0,
+   "pp": 5,
+   "priority": 0,
+   "name": "Recover",
+   "type": "Normal",
+   "category": "Status"
+  },
+  "headlongrush": {
+   "basePower": 120,
+   "pp": 5,
+   "priority": 0,
+   "name": "Headlong Rush",
+   "type": "Ground",
+   "category": "Physical"
+  }
+ },
+ "abilities": {
+  "pressure": {
+   "name": "Pressure"
+  },
+  "swiftswim": {
+   "name": "Swift Swim"
+  },
+  "prankster": {
+   "name": "Prankster"
+  },
+  "regenerator": {
+   "name": "Regenerator"
+  },
+  "purifyingsalt": {
+   "name": "Purifying Salt"
+  },
+  "protosynthesis": {
+   "name": "Protosynthesis"
+  }
+ },
+ "items": {
+  "leftovers": {
+   "name": "Leftovers"
+  },
+  "lifeorb": {
+   "name": "Life Orb"
+  },
+  "damprock": {
+   "name": "Damp Rock"
+  }
+ },
+ "natures": [
+  "Adamant",
+  "Bashful",
+  "Bold",
+  "Brave",
+  "Calm",
+  "Careful",
+  "Docile",
+  "Gentle",
+  "Hardy",
+  "Hasty",
+  "Impish",
+  "Jolly",
+  "Lax",
+  "Lonely",
+  "Mild",
+  "Modest",
+  "Naive",
+  "Naughty",
+  "Quiet",
+  "Rash",
+  "Relaxed",
+  "Sassy",
+  "Serious",
+  "Timid"
+ ]
+}

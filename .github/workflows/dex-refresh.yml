@@ -1,0 +1,29 @@
+name: Refresh dex data
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "subset = small fixture dex committed to the repo; full = complete dex (uploaded as artifact)"
+        type: choice
+        options: [full, subset]
+        default: full
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Extract dex data
+        run: |
+          if [ "${{ inputs.mode }}" = "subset" ]; then
+            node Tools/dexextract/dexextract.mjs --subset Tools/dexextract/subsets/fixtures.json
+          else
+            node Tools/dexextract/dexextract.mjs
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dex-${{ inputs.mode }}
+          path: Packages/PSData/Sources/PSData/Resources/dex/dex.json
