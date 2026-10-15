@@ -19,7 +19,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: swift --version
-      - run: swift test --package-path Packages/${{ matrix.package }}
+      - name: swift test
+        run: |
+          set -o pipefail
+          swift test --package-path Packages/${{ matrix.package }} 2>&1 | tee swift-test.log
+      - name: Surface errors as annotations
+        if: failure()
+        run: |
+          grep -E "error:|Fatal error|Compiling failed" swift-test.log \
+            | sort -u | head -60 | sed "s/^/::error::/"
 
   ios-app:
     name: iOS app build + test
@@ -31,12 +39,21 @@ jobs:
       - name: Generate project
         run: xcodegen generate
       - name: Build
-        run: >-
-          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown
-          -destination 'platform=iOS Simulator,name=iPhone 15'
-          -configuration Debug build
+        run: |
+          set -o pipefail
+          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -configuration Debug build 2>&1 | tee build.log
       - name: Test
-        run: >-
-          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown
-          -destination 'platform=iOS Simulator,name=iPhone 15'
-          -configuration Debug test
+        run: |
+          set -o pipefail
+          xcodebuild -project PokemonShowdown.xcodeproj -scheme PokemonShowdown \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -configuration Debug test 2>&1 | tee test.log
+      - name: Surface errors as annotations
+        if: failure()
+        run: |
+          for f in build.log test.log; do
+            [ -f "$f" ] || continue
+            grep -E "error:|Fatal error" "$f" | sort -u | head -60 | sed "s/^/::error::/"
+          done
